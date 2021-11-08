@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $with = [
+        'userContacts',
+    ];
+
+    //Get contacts for user
+    public function userContacts()
+    {
+        return $this->hasMany('App\Models\UserContact')->orderBy('created_at');
+    }
 }
