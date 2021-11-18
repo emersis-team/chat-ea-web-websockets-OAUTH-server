@@ -17,6 +17,7 @@ class CreateUserContactsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('contact_id')->references('id')->on('users');
+            $table->string('email');
             $table->string('contact_name');
             $table->timestamps();
         });
